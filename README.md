@@ -1,12 +1,12 @@
 # Requirements (local use)
 
-npm v.6.13.4
-node v.12.16.1
+- npm v.6.13.4
+- node v.12.16.1
 
 # How to run (local, dev)
 
-npm install
-npm run dev
+- npm install
+- npm run dev
 
 Standard configuration (file config.js)
 jace-nlp: localhost:3000
