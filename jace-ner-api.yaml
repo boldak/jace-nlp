@@ -16,10 +16,11 @@ tags:
   description: "Named-entity recognition (NER)"
 #
 schemes:
-  - http
   - https
+  - http
 consumes:
   - text/plain
+  - application/json
 produces:
   - application/json
   - application/xml
@@ -57,6 +58,8 @@ parameters:
     schema:
       type: string
 #
+
+
 paths:
   /version:
     get:
@@ -112,6 +115,46 @@ paths:
         type: boolean
         default: false
       - $ref: '#/parameters/input'
+      responses:
+        "200":
+          description: "Response"
+          schema:
+            ref: "#/definitions/Response"
+  /ner/highlight:
+    post:
+      tags:
+      - "NER"
+      summary: Returns NER highlighted html text mapping
+      description: "Return html from text"
+      operationId: highlight
+      consumes:
+        - application/json
+      parameters:
+      - in: query
+        name: lang
+        description: "Specify language"
+        type: string
+        enum: *LANGUAGE
+        required: false
+      - in: query
+        name: tags
+        description: "Specify tags for retrieving. If this parameter is empty, then all tags will be retrieved. You can see tags for each language with GET /version request."
+        type: array
+        uniqueItems: true
+        items:
+          type: string
+      - in: body
+        name: params
+        description: "Specify text for named entities highlights"
+        schema:
+            type: object
+            required:
+              - text
+            properties:
+              text:
+                type: string
+              htmlTemplate:
+                type: string
       responses:
         "200":
           description: "Response"
