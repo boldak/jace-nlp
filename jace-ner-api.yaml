@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  version: "0.0.1"
+  version: "0.0.2"
   title: "Jace NLP App"
   description: "API to retrieve simply NER entities on English (en), Russian (ru), Ukrainian (uk) languages."
   contact:

@@ -27,6 +27,8 @@ app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument,{customCssUrl:"sw-
 
 
 console.log("Gateway config:\n", JSON.stringify(config, null," "))
+console.log(JSON.stringify(swaggerDocument, null, " "))
+
 console.log("Available routes:\n", require("./src/utils").availableRoutesString(app))
 
 app.listen(config.service.port, () => {
